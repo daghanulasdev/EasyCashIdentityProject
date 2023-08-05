@@ -13,5 +13,6 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         public decimal Amount { get; set; }
         public DateTime ProcessDate { get; set; }
 
+
     }
 }
