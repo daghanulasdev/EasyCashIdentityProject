@@ -21,6 +21,8 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(AppUserRegisterDto appUserRegisterDto)
         {
+            Random random = new Random();
+            
             if (ModelState.IsValid) 
             {
                 AppUser appUser = new AppUser()
@@ -31,7 +33,8 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
                     Email = appUserRegisterDto.Email,
                     City="aaa",
                     District="bbb",
-                    ImageUrl="ccc"
+                    ImageUrl="ccc",
+                    ConfirmCode=random.Next(100000,1000000)
                 };
                 var result = await _userManager.CreateAsync(appUser, appUserRegisterDto.Password);
                 if (result.Succeeded) 
